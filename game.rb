@@ -61,6 +61,10 @@ class Game
     @timer
   end
 
+  def player_position(player)
+    players_state[player][:position]
+  end
+
   private
 
   attr_accessor :players, :visited, :players_state

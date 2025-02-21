@@ -35,6 +35,16 @@ class Grid
     size - 1
   end
 
+  # Returns a list of unvisited points
+  def remaining_points
+    (0...size).flat_map do |row|
+      (0...size).map do |col|
+        point = { row: row, col: col }
+        point unless visited[point]  # Include only unvisited points
+      end
+    end.compact
+  end  
+
   private
 
   attr_accessor :size
